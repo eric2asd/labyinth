@@ -46,7 +46,6 @@ class ViewController: UIViewController {
         app.collision!.translatesReferenceBoundsIntoBoundary = true
         animator?.addBehavior(app.collision!)
         
-        //切換關卡
 
         
 
