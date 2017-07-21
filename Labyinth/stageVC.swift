@@ -69,10 +69,13 @@ class stageVC: UIViewController {
                 app.ball.center.x <= hole.origin.x + hole.size.width &&
                 app.ball.center.y >= hole.origin.y &&
                 app.ball.center.y <= hole.origin.y + hole.size.height {
-                app.refreshTimer?.invalidate()
-                app.refreshTimer = nil
                 app.gravity!.removeItem(app.ball)
                 app.collision!.removeItem(app.ball)
+                app.refreshTimer?.invalidate()
+                app.refreshTimer = nil
+                app.timer?.invalidate()
+                app.timer = nil
+
                 
                 let imageView = UIImageView(frame: (app.ball.frame))
                 app.ball.removeFromSuperview()
@@ -86,15 +89,15 @@ class stageVC: UIViewController {
                     imageView.alpha = 0
                     imageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                 })
-                
-                app.ball.frame.origin = app.ball.start
+                app.ball.center = app.ball.start
+                app.ball.bounds.size = CGSize(width: view.frame.width*32/375, height: view.frame.width*32/375)
                 //Sleep 1 Sec
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {(timer) in
                     view.addSubview(self.app.ball)
-                    self.app.ball.frame.size = CGSize(width: view.frame.width*32/375, height: view.frame.width*32/375)
                     self.app.gravity!.addItem(self.app.ball)
                     self.app.collision!.addItem(self.app.ball)
                     self.app.refreshTimer = refreshTime(timeInterval: 0.1)
+                    self.app.timer = self.appTimer(timeInterval: 0.1)
                 })
             }
         }
@@ -141,6 +144,13 @@ class stageVC: UIViewController {
                 
             }
         }
+    }
+    
+    func appTimer(timeInterval:Double)->Timer{
+        return Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(timer) in
+            self.goal(view: self.view)
+            self.holl(view: self.view)
+        })
     }
 
 }
