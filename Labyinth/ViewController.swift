@@ -86,6 +86,7 @@ class ViewController: UIViewController {
                     //imageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                 })
                 // 切換關卡
+                
                 app.stageName = stage.name
                 app.gravity = nil
                 app.collision = nil

@@ -69,6 +69,8 @@ class stageVC: UIViewController {
                 app.ball.center.x <= hole.origin.x + hole.size.width &&
                 app.ball.center.y >= hole.origin.y &&
                 app.ball.center.y <= hole.origin.y + hole.size.height {
+                app.refreshTimer?.invalidate()
+                app.refreshTimer = nil
                 app.gravity!.removeItem(app.ball)
                 app.collision!.removeItem(app.ball)
                 
@@ -92,6 +94,7 @@ class stageVC: UIViewController {
                     self.app.ball.frame.size = CGSize(width: view.frame.width*32/375, height: view.frame.width*32/375)
                     self.app.gravity!.addItem(self.app.ball)
                     self.app.collision!.addItem(self.app.ball)
+                    self.app.refreshTimer = refreshTime(timeInterval: 0.1)
                 })
             }
         }

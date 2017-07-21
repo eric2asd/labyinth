@@ -33,12 +33,13 @@ func switchStage(view:UIView) {
     showStageElement(view: view)
     
     // 開始循環偵測
-    app.refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshSecond, repeats: true, block: {
-        (timer) in
-        //加上引力
-        app.gravity!.gravityDirection = CGVector(dx: 2 * app.accelerometerX, dy: 2 * app.accelerometerY)
-
-    })
+    app.refreshTimer = refreshTime(timeInterval: refreshSecond)
+//    app.refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshSecond, repeats: true, block: {
+//        (timer) in
+//        //加上引力
+//        app.gravity!.gravityDirection = CGVector(dx: 2 * app.accelerometerX, dy: 2 * app.accelerometerY)
+//
+//    })
     // 加入球
     app.gravity!.addItem(app.ball)
     app.collision!.addItem(app.ball)
@@ -84,4 +85,11 @@ func showStageElement(view:UIView) {
 }
 
 
-
+func refreshTime(timeInterval:Double)->Timer{
+    return Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: {
+        (timer) in
+        //加上引力
+        app.gravity!.gravityDirection = CGVector(dx: 2 * app.accelerometerX, dy: 2 * app.accelerometerY)
+        
+    })
+}

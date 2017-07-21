@@ -36,21 +36,21 @@ func chapter1(view:UIView) {
                                       y: view.frame.height*7.8/12.1,
                                       width: view.frame.width*64/375,
                                       height: view.frame.width*64/375)))
-    app.stages.append(Stage(name: "stage1_3",
-                        frame: CGRect(x: view.frame.width*5.5/6.8,
-                                      y: view.frame.height*5.2/12.1,
-                                      width: view.frame.width*64/375,
-                                      height: view.frame.width*64/375)))
-    app.stages.append(Stage(name: "stage1_4",
-                        frame: CGRect(x: view.frame.width*3.5/6.8,
-                                      y: view.frame.height*3.2/12.1,
-                                      width: view.frame.width*64/375,
-                                      height: view.frame.width*64/375)))
-    app.stages.append(Stage(name: "stage1_5",
-                        frame: CGRect(x: view.frame.width*4.5/6.8,
-                                      y: view.frame.height*1/12.1,
-                                      width: view.frame.width*64/375,
-                                      height: view.frame.width*64/375)))
+//    app.stages.append(Stage(name: "stage1_3",
+//                        frame: CGRect(x: view.frame.width*5.5/6.8,
+//                                      y: view.frame.height*5.2/12.1,
+//                                      width: view.frame.width*64/375,
+//                                      height: view.frame.width*64/375)))
+//    app.stages.append(Stage(name: "stage1_4",
+//                        frame: CGRect(x: view.frame.width*3.5/6.8,
+//                                      y: view.frame.height*3.2/12.1,
+//                                      width: view.frame.width*64/375,
+//                                      height: view.frame.width*64/375)))
+//    app.stages.append(Stage(name: "stage1_5",
+//                        frame: CGRect(x: view.frame.width*4.5/6.8,
+//                                      y: view.frame.height*1/12.1,
+//                                      width: view.frame.width*64/375,
+//                                      height: view.frame.width*64/375)))
     // app.ball
     app.ball = Ball(image: UIImage(named: "monkey")!)
     app.ball.frame.size = CGSize(width: view.frame.width*64/375, height: view.frame.width*64/375)
